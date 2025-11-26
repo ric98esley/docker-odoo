@@ -52,11 +52,11 @@ services:
   dns:
     image: cytopia/bind:alpine-0.30
     environment:
-      DNS_A: "*.odoo.localhost=172.20.${ODOO_MINOR}.1"
+      DNS_A: "*.odoo.localhost=172.${IPV4_SUBNET}.${ODOO_MINOR}.1"
       DNS_FORWARDER: 127.0.0.11
     networks:
       binaural:
-        ipv4_address: 172.20.${ODOO_MINOR}.10
+        ipv4_address: 172.${IPV4_SUBNET}.${ODOO_MINOR}.10
   odoo:
     container_name: ${PROJECT_NAME}
     build:
@@ -132,4 +132,4 @@ networks:
     name: odoo-${ODOO_VERSION}
     ipam:
       config:
-        - subnet: 172.20.${ODOO_MINOR}.0/24
+        - subnet: 172.${IPV4_SUBNET}.${ODOO_MINOR}.0/24
