@@ -1,0 +1,3 @@
+[submodule "src/custom/test_addons"]
+	path = src/custom/test_addons
+	url = https://github.com/ric98esley/test_addons.git
